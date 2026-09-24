@@ -3,7 +3,8 @@ import { Hero } from "@/components/Hero";
 import { Experience } from "@/components/Experience";
 import { TechStack } from "@/components/TechStack";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ArticleCard } from "@/components/ArticleCard";
+import { GitHubContributions } from "@/components/GitHubContributions";
+import { LatestArticles } from "@/components/LatestArticles";
 import { projects } from "@/data/projects";
 import { getAllArticles } from "@/lib/markdown";
 
@@ -53,35 +54,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Recent Articles Section (Hidden if articleCount == 0) */}
-      {recentArticles.length > 0 && (
-        <section className="py-6">
-          {/* Same-line Header with View All Button */}
-          <div className="flex items-center justify-between gap-4 border-b border-[#E7E2DA] pb-4 mb-8">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight text-[#1A1815] sm:text-3xl">
-                Recent Articles
-              </h2>
-              <p className="text-sm text-[#75726B] mt-1">
-                Engineering deep dives, architectural notes, and system patterns.
-              </p>
-            </div>
-            <Link
-              href="/writing"
-              className="group inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] px-4 py-2 text-xs font-semibold text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:shadow-sm"
-            >
-              <span>View All Articles</span>
-            </Link>
-          </div>
-
-          {/* Articles Grid (Max 3) */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {recentArticles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
-          </div>
-        </section>
-      )}
+      {/* 5. Activity & Articles (2-Panel Section: GitHub Contributions & Latest Articles) */}
+      <section className="py-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <GitHubContributions />
+          <LatestArticles articles={recentArticles} />
+        </div>
+      </section>
     </div>
   );
 }
