@@ -51,20 +51,20 @@ export function WritingList({ articles }: WritingListProps) {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           {/* Search Input (matches title or tags) */}
           <div className="relative flex-1">
-            <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#75726B]" />
+            <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#75726B] dark:text-stone-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search articles by title or tag..."
-              className="w-full rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] py-2.5 pl-10 pr-9 text-sm text-[#1A1815] placeholder-[#75726B] shadow-xs transition-colors focus:border-[#1A1815] focus:outline-none"
+              className="w-full rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] py-2.5 pl-10 pr-9 text-sm text-[#1A1815] placeholder-[#75726B] shadow-xs transition-colors focus:border-[#1A1815] focus:outline-none dark:border-white/10 dark:bg-dark-200 dark:text-stone-200 dark:placeholder-stone-400 dark:focus:border-stone-300"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
                 aria-label="Clear search input"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#75726B] hover:text-[#1A1815]"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#75726B] hover:text-[#1A1815] dark:text-stone-400 dark:hover:text-white"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -77,8 +77,8 @@ export function WritingList({ articles }: WritingListProps) {
             onClick={() => setIsFilterOpen(!isFilterOpen)}
             className={`inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-xs sm:text-sm font-semibold shadow-xs transition-colors ${
               isFilterOpen || selectedTag
-                ? "border-[#1A1815] bg-[#1A1815] text-[#FAF8F5]"
-                : "border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] hover:border-[#DDD7CD] hover:bg-[#F5F2EB]/50"
+                ? "border-[#1A1815] bg-[#1A1815] text-[#FAF8F5] dark:border-white dark:bg-white dark:text-dark-100"
+                : "border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] hover:border-[#DDD7CD] hover:bg-[#F5F2EB]/50 dark:border-white/10 dark:bg-dark-200 dark:text-stone-200 dark:hover:border-dark-400 dark:hover:bg-dark-300"
             }`}
           >
             <Filter className="h-4 w-4 shrink-0" />
@@ -93,8 +93,8 @@ export function WritingList({ articles }: WritingListProps) {
 
         {/* Expandable Tag Filter Row */}
         {isFilterOpen && (
-          <div className="rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] p-3.5 transition-all">
-            <div className="flex items-center gap-2 mb-2 text-xs font-semibold text-[#75726B]">
+          <div className="rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] p-3.5 transition-all dark:border-white/10 dark:bg-dark-200">
+            <div className="flex items-center gap-2 mb-2 text-xs font-semibold text-[#75726B] dark:text-stone-400">
               <Tag className="h-3.5 w-3.5" />
               <span>Select a tag to filter:</span>
             </div>
@@ -104,8 +104,8 @@ export function WritingList({ articles }: WritingListProps) {
                 onClick={() => setSelectedTag(null)}
                 className={`rounded-md border px-2.5 py-1 font-mono text-xs font-medium transition-colors ${
                   selectedTag === null
-                    ? "border-[#1A1815] bg-[#1A1815] text-[#FAF8F5]"
-                    : "border-[#E7E2DA] bg-[#FFFFFF] text-[#3F3D38] hover:bg-[#EAE5DB]"
+                    ? "border-[#1A1815] bg-[#1A1815] text-[#FAF8F5] dark:border-white dark:bg-white dark:text-dark-100"
+                    : "border-[#E7E2DA] bg-[#FFFFFF] text-[#3F3D38] hover:bg-[#EAE5DB] dark:border-white/10 dark:bg-dark-300 dark:text-stone-300 dark:hover:bg-dark-400"
                 }`}
               >
                 All
@@ -119,8 +119,8 @@ export function WritingList({ articles }: WritingListProps) {
                     onClick={() => setSelectedTag(isSelected ? null : tag)}
                     className={`rounded-md border px-2.5 py-1 font-mono text-xs font-medium transition-colors ${
                       isSelected
-                        ? "border-[#1A1815] bg-[#1A1815] text-[#FAF8F5]"
-                        : "border-[#E7E2DA] bg-[#FFFFFF] text-[#3F3D38] hover:bg-[#EAE5DB]"
+                        ? "border-[#1A1815] bg-[#1A1815] text-[#FAF8F5] dark:border-white dark:bg-white dark:text-dark-100"
+                        : "border-[#E7E2DA] bg-[#FFFFFF] text-[#3F3D38] hover:bg-[#EAE5DB] dark:border-white/10 dark:bg-dark-300 dark:text-stone-300 dark:hover:bg-dark-400"
                     }`}
                   >
                     {tag}
@@ -132,14 +132,14 @@ export function WritingList({ articles }: WritingListProps) {
         )}
 
         {/* Results Info & Active Filter Badges */}
-        <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#75726B] pt-1">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#75726B] dark:text-stone-400 pt-1">
           <p>
             Showing {filteredArticles.length} of {articles.length} articles
             {selectedTag && (
               <span>
                 {" "}
                 tagged with{" "}
-                <span className="font-semibold text-[#1A1815]">
+                <span className="font-semibold text-[#1A1815] dark:text-white">
                   &ldquo;{selectedTag}&rdquo;
                 </span>
               </span>
@@ -150,7 +150,7 @@ export function WritingList({ articles }: WritingListProps) {
             <button
               type="button"
               onClick={handleClearFilters}
-              className="font-medium text-[#1A1815] hover:underline"
+              className="font-medium text-[#1A1815] dark:text-white hover:underline"
             >
               Reset filters
             </button>
@@ -166,17 +166,17 @@ export function WritingList({ articles }: WritingListProps) {
           ))}
         </div>
       ) : (
-        <div className="rounded-2xl border border-dashed border-[#DDD7CD] bg-[#FAF8F5] p-12 text-center">
-          <p className="text-base font-semibold text-[#1A1815]">
+        <div className="rounded-2xl border border-dashed border-[#DDD7CD] bg-[#FAF8F5] p-12 text-center dark:border-white/10 dark:bg-dark-200">
+          <p className="text-base font-semibold text-[#1A1815] dark:text-white">
             No articles found
           </p>
-          <p className="mt-1 text-sm text-[#75726B]">
+          <p className="mt-1 text-sm text-[#75726B] dark:text-stone-400">
             No articles match your search or tag filter. Try a different query.
           </p>
           <button
             type="button"
             onClick={handleClearFilters}
-            className="mt-4 inline-flex items-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] px-4 py-2 text-xs font-semibold text-[#1A1815] shadow-xs hover:bg-[#F5F2EB]"
+            className="mt-4 inline-flex items-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] px-4 py-2 text-xs font-semibold text-[#1A1815] shadow-xs hover:bg-[#F5F2EB] dark:border-white/10 dark:bg-dark-300 dark:text-stone-200 dark:hover:bg-dark-400"
           >
             Clear filters
           </button>

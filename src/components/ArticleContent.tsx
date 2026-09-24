@@ -12,6 +12,13 @@ export function ArticleContent({ contentHtml }: ArticleContentProps) {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Ensure all outbound links inside article prose open in a new tab
+    const anchorTags = containerRef.current.querySelectorAll("a");
+    anchorTags.forEach((anchor) => {
+      anchor.setAttribute("target", "_blank");
+      anchor.setAttribute("rel", "noopener noreferrer");
+    });
+
     // Enhance all <pre> elements with a dark header bar, language label, and functional copy button
     const preBlocks = containerRef.current.querySelectorAll("pre");
 
@@ -29,12 +36,12 @@ export function ArticleContent({ contentHtml }: ArticleContentProps) {
       // Wrapper container matching the user's favored code block aesthetic
       const wrapper = document.createElement("div");
       wrapper.className =
-        "code-block-wrapper my-6 overflow-hidden rounded-xl border border-[#1A1815] bg-[#1A1815] text-xs font-mono text-[#FAF8F5] shadow-xs";
+        "code-block-wrapper my-6 overflow-hidden rounded-xl border border-[#1A1815] dark:border-white/10 bg-[#1A1815] dark:bg-dark-200 text-xs font-mono text-[#FAF8F5] shadow-xs";
 
       // Header bar
       const header = document.createElement("div");
       header.className =
-        "flex items-center justify-between border-b border-white/10 px-4 py-2.5 text-[#969289]";
+        "flex items-center justify-between border-b border-white/10 px-4 py-2.5 text-[#969289] dark:text-stone-400";
 
       const filenameSpan = document.createElement("span");
       filenameSpan.className = "font-semibold text-neutral-300";
@@ -85,7 +92,7 @@ export function ArticleContent({ contentHtml }: ArticleContentProps) {
   return (
     <div
       ref={containerRef}
-      className="article-prose space-y-6 text-base leading-relaxed text-[#3F3D38]"
+      className="article-prose space-y-6 text-base leading-relaxed text-[#3F3D38] dark:text-stone-300"
       dangerouslySetInnerHTML={{ __html: contentHtml }}
     />
   );

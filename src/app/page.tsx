@@ -29,18 +29,18 @@ export default function Home() {
       {/* 4. Featured Projects Section (sahilverma style, 2 per row, max 4 items) */}
       <section className="py-6">
         {/* Same-line Header with View All Button */}
-        <div className="flex items-center justify-between gap-4 border-b border-[#E7E2DA] pb-4 mb-8">
+        <div className="flex items-center justify-between gap-4 border-b border-[#E7E2DA] dark:border-white/10 pb-4 mb-8">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-[#1A1815] sm:text-3xl">
+            <h2 className="text-2xl font-bold tracking-tight text-[#1A1815] dark:text-white sm:text-3xl">
               Featured Projects
             </h2>
-            <p className="text-sm text-[#75726B] mt-1">
+            <p className="text-sm text-[#75726B] dark:text-stone-400 mt-1">
               Select technical solutions solving concrete engineering problems.
             </p>
           </div>
           <Link
             href="/projects"
-            className="group inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] px-4 py-2 text-xs font-semibold text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:shadow-sm"
+            className="group inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] px-4 py-2 text-xs font-semibold text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] dark:border-white/10 dark:bg-dark-200 dark:text-stone-200 dark:hover:border-dark-400 dark:hover:bg-dark-300"
           >
             <span>View All Projects</span>
           </Link>

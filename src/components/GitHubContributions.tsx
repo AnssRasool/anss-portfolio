@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
+import { useTheme } from "next-themes";
 
 export interface ContributionDay {
   date: string;
@@ -41,12 +42,20 @@ const FALLBACK_LANGUAGES: LanguageStat[] = [
   { name: "JavaScript", percentage: 0.4, color: "#F7DF1E" },
 ];
 
-const LEVEL_COLORS = [
+const LEVEL_COLORS_LIGHT = [
   "#F0EDE6", // Level 0: soft neutral cream
   "#86EFAC", // Level 1: light green
   "#4ADE80", // Level 2: medium green
   "#16A34A", // Level 3: deep green
   "#15803D", // Level 4: forest green
+];
+
+const LEVEL_COLORS_DARK = [
+  "#262626", // Level 0: dark neutral matching andrijaweb
+  "#0E4429", // Level 1
+  "#006D32", // Level 2
+  "#26A641", // Level 3
+  "#39D353", // Level 4
 ];
 
 function formatDate(dateStr: string): string {
@@ -64,10 +73,19 @@ function formatDate(dateStr: string): string {
 }
 
 export function GitHubContributions() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
   const [totalCount, setTotalCount] = useState<number>(12);
   const [languages, setLanguages] = useState<LanguageStat[]>(FALLBACK_LANGUAGES);
   const [hoveredDay, setHoveredDay] = useState<ContributionDay | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+  const levelColors = isDark ? LEVEL_COLORS_DARK : LEVEL_COLORS_LIGHT;
 
   useEffect(() => {
     let isMounted = true;
@@ -229,15 +247,15 @@ export function GitHubContributions() {
   const totalSvgHeight = topMargin + 7 * rowStep + 4;
 
   return (
-    <div className="flex flex-col justify-between rounded-2xl border border-[#E7E2DA] bg-[#FFFFFF] p-6 shadow-xs">
+    <div className="flex flex-col justify-between rounded-2xl border border-[#E7E2DA] bg-[#FFFFFF] p-6 shadow-xs dark:border-white/10 dark:bg-dark-200">
       {/* 1. Header with Visit GitHub button (NO ARROWS) */}
       <div>
-        <div className="flex items-center justify-between gap-4 border-b border-[#F0ECE4] pb-4 mb-5">
+        <div className="flex items-center justify-between gap-4 border-b border-[#F0ECE4] dark:border-white/10 pb-4 mb-5">
           <div className="min-w-0">
-            <h3 className="text-xl font-bold tracking-tight text-[#1A1815]">
+            <h3 className="text-xl font-bold tracking-tight text-[#1A1815] dark:text-white">
               GitHub Contributions
             </h3>
-            <p className="text-xs text-[#75726B] mt-0.5">
+            <p className="text-xs text-[#75726B] dark:text-stone-400 mt-0.5">
               Live activity & language distribution
             </p>
           </div>
@@ -245,7 +263,7 @@ export function GitHubContributions() {
             href="https://github.com/AnssRasool"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] px-3.5 py-1.5 text-xs font-semibold text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FFFFFF] hover:shadow-sm"
+            className="shrink-0 rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] px-3.5 py-1.5 text-xs font-semibold text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FFFFFF] dark:border-white/10 dark:bg-dark-300 dark:text-stone-200 dark:hover:bg-dark-200 dark:hover:border-dark-400"
           >
             Visit GitHub
           </a>
@@ -254,14 +272,14 @@ export function GitHubContributions() {
         {/* 2. Languages Percentage Bar (jasoncameron.dev style) */}
         <div className="space-y-2 mb-6">
           <div className="flex items-center justify-between text-xs">
-            <span className="font-semibold text-[#1A1815]">Languages</span>
-            <span className="text-[11px] font-mono text-[#75726B]">
+            <span className="font-semibold text-[#1A1815] dark:text-white">Languages</span>
+            <span className="text-[11px] font-mono text-[#75726B] dark:text-stone-400">
               Public Repositories
             </span>
           </div>
 
           {/* Segmented Bar */}
-          <div className="h-2.5 w-full overflow-hidden rounded-full bg-[#EFEBE4] flex">
+          <div className="h-2.5 w-full overflow-hidden rounded-full bg-[#EFEBE4] dark:bg-dark-300 flex">
             {languages.map((lang) => (
               <div
                 key={lang.name}
@@ -272,7 +290,7 @@ export function GitHubContributions() {
                 }}
               >
                 {/* Hover Tooltip */}
-                <div className="pointer-events-none absolute -top-8 left-1/2 z-20 -translate-x-1/2 rounded-md border border-[#E7E2DA] bg-[#1A1815] px-2 py-0.5 text-[11px] text-white whitespace-nowrap opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100">
+                <div className="pointer-events-none absolute -top-8 left-1/2 z-20 -translate-x-1/2 rounded-md border border-[#E7E2DA] dark:border-white/10 bg-[#1A1815] dark:bg-dark-100 px-2 py-0.5 text-[11px] text-white whitespace-nowrap opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100">
                   <span className="inline-flex items-center gap-1.5">
                     <span
                       className="inline-block h-2 w-2 rounded-full"
@@ -295,8 +313,8 @@ export function GitHubContributions() {
                   className="h-2 w-2 rounded-full shrink-0"
                   style={{ backgroundColor: lang.color }}
                 />
-                <span className="font-medium text-[#1A1815]">{lang.name}</span>
-                <span className="font-mono text-[#75726B] text-[11px]">
+                <span className="font-medium text-[#1A1815] dark:text-stone-200">{lang.name}</span>
+                <span className="font-mono text-[#75726B] dark:text-stone-400 text-[11px]">
                   {lang.percentage}%
                 </span>
               </div>
@@ -305,13 +323,13 @@ export function GitHubContributions() {
         </div>
 
         {/* Subtle Section Divider */}
-        <div className="border-t border-[#F0ECE4] my-5" />
+        <div className="border-t border-[#F0ECE4] dark:border-white/10 my-5" />
 
         {/* 3. GitHub Contributions Heatmap Calendar (prasoon-mahawar.dev style) */}
         <div>
           <div className="flex items-center justify-between text-xs mb-3">
-            <span className="font-semibold text-[#1A1815]">Activity Graph</span>
-            <span className="font-mono text-[11px] text-[#75726B]">
+            <span className="font-semibold text-[#1A1815] dark:text-white">Activity Graph</span>
+            <span className="font-mono text-[11px] text-[#75726B] dark:text-stone-400">
               Past Year
             </span>
           </div>
@@ -327,7 +345,7 @@ export function GitHubContributions() {
               <text
                 x="0"
                 y={topMargin + 1 * rowStep + 8}
-                fill="#8C887E"
+                fill={isDark ? "#A8A29E" : "#8C887E"}
                 fontSize="9"
                 fontFamily="inherit"
               >
@@ -336,7 +354,7 @@ export function GitHubContributions() {
               <text
                 x="0"
                 y={topMargin + 3 * rowStep + 8}
-                fill="#8C887E"
+                fill={isDark ? "#A8A29E" : "#8C887E"}
                 fontSize="9"
                 fontFamily="inherit"
               >
@@ -345,7 +363,7 @@ export function GitHubContributions() {
               <text
                 x="0"
                 y={topMargin + 5 * rowStep + 8}
-                fill="#8C887E"
+                fill={isDark ? "#A8A29E" : "#8C887E"}
                 fontSize="9"
                 fontFamily="inherit"
               >
@@ -358,7 +376,7 @@ export function GitHubContributions() {
                   key={`${m.label}-${m.weekIndex}`}
                   x={leftMargin + m.weekIndex * colStep}
                   y="10"
-                  fill="#8C887E"
+                  fill={isDark ? "#A8A29E" : "#8C887E"}
                   fontSize="9"
                   fontFamily="inherit"
                 >
@@ -380,8 +398,8 @@ export function GitHubContributions() {
                         width={cellSize}
                         height={cellSize}
                         rx={2}
-                        fill={LEVEL_COLORS[day.level] || LEVEL_COLORS[0]}
-                        className="cursor-pointer transition-all duration-150 hover:stroke-[#1A1815] hover:stroke-[1.5]"
+                        fill={levelColors[day.level] || levelColors[0]}
+                        className="cursor-pointer transition-all duration-150 hover:stroke-[#1A1815] dark:hover:stroke-white hover:stroke-[1.5]"
                         onMouseEnter={() => setHoveredDay(day)}
                         onMouseLeave={() => setHoveredDay(null)}
                       >
@@ -401,10 +419,10 @@ export function GitHubContributions() {
       </div>
 
       {/* 4. Calendar Footer: Status bar and Less/More scale */}
-      <div className="mt-3 flex items-center justify-between border-t border-[#F5F2EB] pt-3 text-xs font-mono text-[#75726B]">
+      <div className="mt-3 flex items-center justify-between border-t border-[#F5F2EB] dark:border-white/10 pt-3 text-xs font-mono text-[#75726B] dark:text-stone-400">
         <div className="min-h-[18px]">
           {hoveredDay ? (
-            <span className="text-[#1A1815] font-semibold">
+            <span className="text-[#1A1815] dark:text-white font-semibold">
               {hoveredDay.count === 0 ? "No" : hoveredDay.count}{" "}
               contribution{hoveredDay.count === 1 ? "" : "s"} on{" "}
               {formatDate(hoveredDay.date)}
@@ -417,7 +435,7 @@ export function GitHubContributions() {
         {/* Legend */}
         <div className="flex items-center gap-1.5 text-[11px]">
           <span>Less</span>
-          {LEVEL_COLORS.map((color, idx) => (
+          {levelColors.map((color, idx) => (
             <span
               key={idx}
               className="inline-block h-2.5 w-2.5 rounded-[2px]"

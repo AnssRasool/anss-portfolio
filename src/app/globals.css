@@ -7,10 +7,20 @@
   --foreground: #1A1815;
 }
 
+.dark {
+  --background: #0A0A0A;
+  --foreground: #E7E5E4;
+}
+
 html {
   background-color: #FAF8F5;
   color: #1A1815;
   scroll-behavior: smooth;
+}
+
+html.dark {
+  background-color: #0A0A0A;
+  color: #E7E5E4;
 }
 
 body {
@@ -26,10 +36,22 @@ body {
   background-size: 24px 24px;
 }
 
+.dark body,
+body.dark {
+  background-color: #0A0A0A;
+  color: #E7E5E4;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
 /* Styled text selection */
 ::selection {
   background: #E8E0D2;
   color: #1A1815;
+}
+
+.dark ::selection {
+  background: #262626;
+  color: #FFFFFF;
 }
 
 /* Styled scrollbar */
@@ -42,13 +64,26 @@ body {
   background: #FAF8F5;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #DDD5C7;
   border-radius: 4px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #C4B9A5;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #404040;
 }
 
 /* Fluid page entrance keyframe animation */
@@ -73,6 +108,11 @@ body {
   outline-offset: 2px;
 }
 
+.dark :focus-visible {
+  outline: 2px solid #E7E5E4;
+  outline-offset: 2px;
+}
+
 /* Editorial Article Prose Styling for Markdown Content */
 .article-prose h2 {
   font-size: 1.35rem;
@@ -83,12 +123,20 @@ body {
   letter-spacing: -0.015em;
 }
 
+.dark .article-prose h2 {
+  color: #FFFFFF;
+}
+
 .article-prose h3 {
   font-size: 1.15rem;
   font-weight: 600;
   color: #1A1815;
   margin-top: 1.75rem;
   margin-bottom: 0.65rem;
+}
+
+.dark .article-prose h3 {
+  color: #FFFFFF;
 }
 
 .article-prose p {
@@ -98,11 +146,19 @@ body {
   font-size: 1rem;
 }
 
+.dark .article-prose p {
+  color: #D6D3D1;
+}
+
 .article-prose ul {
   list-style-type: disc;
   padding-left: 1.5rem;
   margin-bottom: 1.25rem;
   color: #3F3D38;
+}
+
+.dark .article-prose ul {
+  color: #D6D3D1;
 }
 
 .article-prose li {
@@ -118,4 +174,10 @@ body {
   color: #1A1815;
   padding: 0.15rem 0.35rem;
   border-radius: 0.375rem;
+}
+
+.dark .article-prose code:not(pre code) {
+  background-color: #1A1A1A;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
 }

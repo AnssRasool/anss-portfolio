@@ -41,7 +41,7 @@ export default async function ArticlePage({ params }: PageProps) {
       <div>
         <Link
           href="/writing"
-          className="group inline-flex items-center gap-1.5 text-xs font-semibold text-[#75726B] hover:text-[#1A1815] transition-colors"
+          className="group inline-flex items-center gap-1.5 text-xs font-semibold text-[#75726B] hover:text-[#1A1815] dark:text-stone-400 dark:hover:text-white transition-colors"
         >
           <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
           <span>Back to All Writing</span>
@@ -49,9 +49,9 @@ export default async function ArticlePage({ params }: PageProps) {
       </div>
 
       {/* Article Header */}
-      <header className="space-y-4 border-b border-[#E7E2DA] pb-8">
+      <header className="space-y-4 border-b border-[#E7E2DA] dark:border-white/10 pb-8">
         {/* Datetime row */}
-        <div className="flex items-center gap-2 text-xs text-[#75726B] font-mono">
+        <div className="flex items-center gap-2 text-xs text-[#75726B] dark:text-stone-400 font-mono">
           <span className="flex items-center gap-1">
             <Calendar className="h-3.5 w-3.5" />
             <span>{data.date}</span>
@@ -63,15 +63,15 @@ export default async function ArticlePage({ params }: PageProps) {
           </span>
         </div>
 
-        {/* Tags row right below datetime row (jasoncameron style: Tag icon + boxes used elsewhere in app) */}
+        {/* Tags row right below datetime row */}
         {data.tags.length > 0 && (
           <div className="flex flex-wrap items-center gap-2">
-            <Tag className="h-3.5 w-3.5 text-[#75726B] shrink-0" aria-hidden="true" />
+            <Tag className="h-3.5 w-3.5 text-[#75726B] dark:text-stone-400 shrink-0" aria-hidden="true" />
             <div className="flex flex-wrap items-center gap-1.5">
               {data.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-md border border-[#E7E2DA] bg-[#FAF8F5] px-2 py-0.5 font-mono text-xs font-medium text-[#3F3D38]"
+                  className="rounded-md border border-[#E7E2DA] bg-[#FAF8F5] px-2 py-0.5 font-mono text-xs font-medium text-[#3F3D38] dark:border-white/10 dark:bg-dark-300 dark:text-stone-300"
                 >
                   {tag}
                 </span>
@@ -80,11 +80,11 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         )}
 
-        <h1 className="text-3xl font-extrabold tracking-tight text-[#1A1815] sm:text-4xl md:text-5xl pt-2">
+        <h1 className="text-3xl font-extrabold tracking-tight text-[#1A1815] dark:text-white sm:text-4xl md:text-5xl pt-2">
           {data.title}
         </h1>
 
-        <p className="max-w-2xl text-lg text-[#5A5751] leading-relaxed">
+        <p className="max-w-2xl text-lg text-[#5A5751] dark:text-stone-300 leading-relaxed">
           {data.summary}
         </p>
       </header>

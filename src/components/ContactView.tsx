@@ -47,8 +47,8 @@ export function ContactView() {
         <div className="space-y-6 md:col-span-5 text-center md:text-left">
           {/* Avatar Picture with UI-matching frame */}
           <div className="inline-block mx-auto md:mx-0">
-            <div className="relative h-36 w-36 sm:h-44 sm:w-44 overflow-hidden rounded-2xl border border-[#DDD7CD] bg-[#FFFFFF] p-1.5 shadow-sm transition-transform duration-300 hover:scale-[1.02]">
-              <div className="relative h-full w-full overflow-hidden rounded-xl bg-[#F5F2EB]">
+            <div className="relative h-36 w-36 sm:h-44 sm:w-44 overflow-hidden rounded-2xl border border-[#DDD7CD] bg-[#FFFFFF] p-1.5 shadow-sm transition-transform duration-300 hover:scale-[1.02] dark:border-white/10 dark:bg-dark-200">
+              <div className="relative h-full w-full overflow-hidden rounded-xl bg-[#F5F2EB] dark:bg-dark-300">
                 <Image
                   src={siteConfig.avatarUrl}
                   alt={siteConfig.name}
@@ -60,21 +60,23 @@ export function ContactView() {
               </div>
             </div>
             {/* Location Text matching UI */}
-            <p className="mt-2.5 text-xs font-medium text-[#1A1815] text-center">
+            <p className="mt-2.5 text-xs font-medium text-[#1A1815] dark:text-stone-300 text-center">
               {siteConfig.location}
             </p>
           </div>
 
           {/* Heading & Intro Text */}
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1A1815]">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1A1815] dark:text-white">
               Contact Me
             </h1>
-            <p className="text-sm text-[#5A5751] leading-relaxed max-w-md mx-auto md:mx-0">
+            <p className="text-sm text-[#5A5751] dark:text-stone-300 leading-relaxed max-w-md mx-auto md:mx-0">
               Feel free to{" "}
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="font-semibold text-[#1A1815] underline decoration-[#DDD7CD] underline-offset-4 transition-colors hover:decoration-[#1A1815]"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#1A1815] dark:text-white underline decoration-[#DDD7CD] dark:decoration-dark-400 underline-offset-4 transition-colors hover:decoration-[#1A1815] dark:hover:decoration-white"
               >
                 mail me
               </a>{" "}
@@ -84,17 +86,19 @@ export function ContactView() {
 
           {/* Social Profiles Row */}
           <div className="space-y-2 pt-1">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#969289]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#969289] dark:text-stone-400">
               Connect Directly
             </p>
             <div className="flex items-center justify-center md:justify-start gap-2.5">
               {/* Direct Mail */}
               <a
                 href={`mailto:${siteConfig.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Send direct email"
-                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] hover:shadow-sm"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] dark:border-white/10 dark:bg-dark-200 dark:text-stone-200 dark:hover:bg-dark-300 dark:hover:border-dark-400"
               >
-                <Mail className="h-4 w-4 text-[#5A5751] transition-colors group-hover:text-[#1A1815]" />
+                <Mail className="h-4 w-4 text-[#5A5751] dark:text-stone-300 transition-colors group-hover:text-[#1A1815] dark:group-hover:text-white" />
               </a>
 
               {/* GitHub */}
@@ -103,10 +107,10 @@ export function ContactView() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub profile"
-                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] hover:shadow-sm"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] dark:border-white/10 dark:bg-dark-200 dark:text-stone-200 dark:hover:bg-dark-300 dark:hover:border-dark-400"
               >
                 <svg
-                  className="h-4 w-4 fill-current text-[#5A5751] transition-colors group-hover:text-[#1A1815]"
+                  className="h-4 w-4 fill-current text-[#5A5751] dark:text-stone-300 transition-colors group-hover:text-[#1A1815] dark:group-hover:text-white"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -123,7 +127,7 @@ export function ContactView() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile"
-                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] hover:shadow-sm"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] dark:border-white/10 dark:bg-dark-200 dark:text-stone-200 dark:hover:bg-dark-300 dark:hover:border-dark-400"
               >
                 <svg className="h-4 w-4 fill-[#0A66C2]" viewBox="0 0 24 24">
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
@@ -133,11 +137,13 @@ export function ContactView() {
               {/* Resume Download */}
               <a
                 href={siteConfig.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 download="Anss_Rasool_Resume.pdf"
                 aria-label="Download Resume"
-                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] hover:shadow-sm"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] dark:border-white/10 dark:bg-dark-200 dark:text-stone-200 dark:hover:bg-dark-300 dark:hover:border-dark-400"
               >
-                <FileText className="h-4 w-4 text-[#5A5751] transition-colors group-hover:text-[#1A1815]" />
+                <FileText className="h-4 w-4 text-[#5A5751] dark:text-stone-300 transition-colors group-hover:text-[#1A1815] dark:group-hover:text-white" />
               </a>
             </div>
           </div>
@@ -145,22 +151,22 @@ export function ContactView() {
 
         {/* Right Column: Get in Touch Form Card */}
         <div className="md:col-span-7">
-          <div className="rounded-2xl border border-[#E7E2DA] bg-[#FFFFFF] p-6 sm:p-8 shadow-xs">
-            <div className="border-b border-[#F0ECE4] pb-4 mb-6">
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1A1815]">
+          <div className="rounded-2xl border border-[#E7E2DA] bg-[#FFFFFF] p-6 sm:p-8 shadow-xs dark:border-white/10 dark:bg-dark-200">
+            <div className="border-b border-[#F0ECE4] dark:border-white/10 pb-4 mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1A1815] dark:text-white">
                 Get in Touch
               </h2>
-              <p className="text-xs text-[#75726B] mt-1">
+              <p className="text-xs text-[#75726B] dark:text-stone-400 mt-1">
                 Fill in the details below to start a conversation.
               </p>
             </div>
 
             {submitted && (
-              <div className="mb-6 flex items-start gap-3 rounded-xl border border-[#86EFAC] bg-[#F0FDF4] p-4 text-xs text-[#166534]">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-[#16A34A] mt-0.5" />
+              <div className="mb-6 flex items-start gap-3 rounded-xl border border-[#86EFAC] dark:border-[#166534] bg-[#F0FDF4] dark:bg-[#052e16] p-4 text-xs text-[#166534] dark:text-emerald-300">
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-[#16A34A] dark:text-emerald-400 mt-0.5" />
                 <div>
                   <p className="font-semibold">Email client launched!</p>
-                  <p className="mt-0.5 text-[#15803D]">
+                  <p className="mt-0.5 text-[#15803D] dark:text-emerald-400">
                     If your email client didn&apos;t open automatically, use the{" "}
                     <button
                       type="button"
@@ -181,7 +187,7 @@ export function ContactView() {
               <div className="space-y-1.5">
                 <label
                   htmlFor="email"
-                  className="block text-xs font-semibold uppercase tracking-wider text-[#75726B]"
+                  className="block text-xs font-semibold uppercase tracking-wider text-[#75726B] dark:text-stone-400"
                 >
                   Your Email
                 </label>
@@ -193,7 +199,7 @@ export function ContactView() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your Email"
                   required
-                  className="w-full rounded-xl border border-[#E7E2DA] bg-[#FAF8F5]/60 px-4 py-2.5 text-sm text-[#1A1815] placeholder:text-[#969289] transition-colors focus:border-[#1A1815] focus:bg-[#FFFFFF] focus:outline-none"
+                  className="w-full rounded-xl border border-[#E7E2DA] bg-[#FAF8F5]/60 px-4 py-2.5 text-sm text-[#1A1815] placeholder:text-[#969289] transition-colors focus:border-[#1A1815] focus:bg-[#FFFFFF] focus:outline-none dark:border-white/10 dark:bg-dark-300/60 dark:text-white dark:placeholder:text-stone-400 dark:focus:border-stone-300 dark:focus:bg-dark-300"
                 />
               </div>
 
@@ -201,7 +207,7 @@ export function ContactView() {
               <div className="space-y-1.5">
                 <label
                   htmlFor="title"
-                  className="block text-xs font-semibold uppercase tracking-wider text-[#75726B]"
+                  className="block text-xs font-semibold uppercase tracking-wider text-[#75726B] dark:text-stone-400"
                 >
                   Title
                 </label>
@@ -213,7 +219,7 @@ export function ContactView() {
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Title"
                   required
-                  className="w-full rounded-xl border border-[#E7E2DA] bg-[#FAF8F5]/60 px-4 py-2.5 text-sm text-[#1A1815] placeholder:text-[#969289] transition-colors focus:border-[#1A1815] focus:bg-[#FFFFFF] focus:outline-none"
+                  className="w-full rounded-xl border border-[#E7E2DA] bg-[#FAF8F5]/60 px-4 py-2.5 text-sm text-[#1A1815] placeholder:text-[#969289] transition-colors focus:border-[#1A1815] focus:bg-[#FFFFFF] focus:outline-none dark:border-white/10 dark:bg-dark-300/60 dark:text-white dark:placeholder:text-stone-400 dark:focus:border-stone-300 dark:focus:bg-dark-300"
                 />
               </div>
 
@@ -221,7 +227,7 @@ export function ContactView() {
               <div className="space-y-1.5">
                 <label
                   htmlFor="description"
-                  className="block text-xs font-semibold uppercase tracking-wider text-[#75726B]"
+                  className="block text-xs font-semibold uppercase tracking-wider text-[#75726B] dark:text-stone-400"
                 >
                   Description
                 </label>
@@ -233,7 +239,7 @@ export function ContactView() {
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Description"
                   required
-                  className="w-full rounded-xl border border-[#E7E2DA] bg-[#FAF8F5]/60 px-4 py-2.5 text-sm text-[#1A1815] placeholder:text-[#969289] transition-colors focus:border-[#1A1815] focus:bg-[#FFFFFF] focus:outline-none resize-none"
+                  className="w-full rounded-xl border border-[#E7E2DA] bg-[#FAF8F5]/60 px-4 py-2.5 text-sm text-[#1A1815] placeholder:text-[#969289] transition-colors focus:border-[#1A1815] focus:bg-[#FFFFFF] focus:outline-none resize-none dark:border-white/10 dark:bg-dark-300/60 dark:text-white dark:placeholder:text-stone-400 dark:focus:border-stone-300 dark:focus:bg-dark-300"
                 />
               </div>
 
@@ -242,7 +248,7 @@ export function ContactView() {
                 {/* Primary: Send Message */}
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1A1815] px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#272522] hover:shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1A1815] px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#272522] dark:bg-white dark:text-dark-100 dark:hover:bg-stone-200"
                 >
                   <Send className="h-4 w-4" />
                   <span>Send Message</span>
@@ -252,21 +258,21 @@ export function ContactView() {
                 <button
                   type="button"
                   onClick={handleViewInEmail}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] hover:shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#1A1815] shadow-xs transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#FAF8F5] dark:border-white/10 dark:bg-dark-300 dark:text-stone-200 dark:hover:bg-dark-200 dark:hover:border-dark-400"
                 >
-                  <ExternalLink className="h-4 w-4 text-[#5A5751]" />
+                  <ExternalLink className="h-4 w-4 text-[#5A5751] dark:text-stone-300" />
                   <span>View in Email</span>
                 </button>
               </div>
 
               {/* Fallback / Webmail Option */}
-              <div className="border-t border-[#F5F2EB] pt-4 mt-4 text-[11px] text-[#75726B] font-mono flex flex-wrap items-center justify-between gap-2">
+              <div className="border-t border-[#F5F2EB] dark:border-white/10 pt-4 mt-4 text-[11px] text-[#75726B] dark:text-stone-400 font-mono flex flex-wrap items-center justify-between gap-2">
                 <span>Direct: {siteConfig.email}</span>
                 <a
                   href={generateGmailUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#1A1815] underline decoration-[#DDD7CD] underline-offset-2 hover:decoration-[#1A1815] transition-colors"
+                  className="text-[#1A1815] dark:text-white underline decoration-[#DDD7CD] dark:decoration-dark-400 underline-offset-2 hover:decoration-[#1A1815] dark:hover:decoration-white transition-colors"
                 >
                   Open in Gmail Web ↗
                 </a>
