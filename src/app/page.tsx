@@ -5,9 +5,10 @@ import { TechStack } from "@/components/TechStack";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ArticleCard } from "@/components/ArticleCard";
 import { projects } from "@/data/projects";
-import { articles } from "@/data/articles";
+import { getAllArticles } from "@/lib/markdown";
 
 export default function Home() {
+  const articles = getAllArticles();
   // Show max 4 projects on the home page (2 per row)
   const featuredProjects = projects.slice(0, 4);
   // Show up to 3 articles (newest to oldest)

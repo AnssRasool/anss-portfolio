@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
-import { articles } from "@/data/articles";
 import {
   Home,
   Briefcase,
@@ -13,12 +12,7 @@ import {
 
 export function Navbar() {
   const pathname = usePathname();
-
-  // If articleCount == 0 don't show in navbar
-  const filteredNavItems = siteConfig.navItems.filter((item) => {
-    if (item.href === "/writing" && articles.length === 0) return false;
-    return true;
-  });
+  const navItems = siteConfig.navItems;
 
   // Icon mapping for compact mobile view (matching andrijaweb pattern)
   const getNavIcon = (href: string) => {
@@ -43,7 +37,7 @@ export function Navbar() {
         aria-label="Primary Navigation"
         className="pointer-events-auto flex items-center gap-1 sm:gap-1.5 rounded-xl border border-[#E7E2DA] bg-[#FAF8F5]/90 p-1.5 shadow-[0px_2px_8px_-2px_rgba(0,0,0,0.06),0px_1px_3px_0px_rgba(0,0,0,0.04)] backdrop-blur-md transition-all"
       >
-        {filteredNavItems.map((item) => {
+        {navItems.map((item) => {
           const isActive =
             item.href === "/"
               ? pathname === "/"

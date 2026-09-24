@@ -1,4 +1,4 @@
-import { articles } from "@/data/articles";
+import { getAllArticles } from "@/lib/markdown";
 import { WritingList } from "@/components/WritingList";
 import type { Metadata } from "next";
 
@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 };
 
 export default function WritingPage() {
+  const articles = getAllArticles();
+
   return (
     <div className="py-12 md:py-16 space-y-10">
       {/* Page Header */}
