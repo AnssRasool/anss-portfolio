@@ -1,5 +1,5 @@
 import { articles } from "@/data/articles";
-import { ArticleCard } from "@/components/ArticleCard";
+import { WritingList } from "@/components/WritingList";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,12 +20,8 @@ export default function WritingPage() {
         </p>
       </div>
 
-      {/* 5 Dummy Articles Grid */}
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {articles.map((article) => (
-          <ArticleCard key={article.id} article={article} />
-        ))}
-      </div>
+      {/* Interactive Writing Search & List */}
+      <WritingList articles={articles} />
     </div>
   );
 }

@@ -6,6 +6,7 @@ export interface Article {
   date: string;
   readTime: string;
   summary: string;
+  tags: string[];
 }
 
 export const articles: Article[] = [
@@ -17,6 +18,7 @@ export const articles: Article[] = [
     date: "Sep 2026",
     readTime: "4 min read",
     summary: "A technical walkthrough of backend design principles and distributed event handling.",
+    tags: ["Backend", "Distributed Systems", "Architecture"],
   },
   {
     id: "art-4",
@@ -26,6 +28,7 @@ export const articles: Article[] = [
     date: "Aug 2026",
     readTime: "5 min read",
     summary: "Architecting idempotent webhooks and mitigating cross-tenant security vulnerabilities.",
+    tags: ["Security", "Webhooks", "AWS"],
   },
   {
     id: "art-3",
@@ -35,6 +38,7 @@ export const articles: Article[] = [
     date: "Jul 2026",
     readTime: "6 min read",
     summary: "Optimizing real-time WebSocket pipelines for low-latency AI audio transcription.",
+    tags: ["AI", "WebSockets", "Streaming"],
   },
   {
     id: "art-2",
@@ -44,6 +48,7 @@ export const articles: Article[] = [
     date: "May 2026",
     readTime: "3 min read",
     summary: "Building Model Context Protocol (MCP) servers for Claude and next-generation developer tooling.",
+    tags: ["AI", "MCP", "Developer Tools"],
   },
   {
     id: "art-1",
@@ -53,5 +58,6 @@ export const articles: Article[] = [
     date: "Mar 2026",
     readTime: "5 min read",
     summary: "A practical guide to database indexing, query optimization, and connection pooling in production.",
+    tags: ["Databases", "Performance", "SQL"],
   },
 ];
