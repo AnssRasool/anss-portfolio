@@ -1,10 +1,10 @@
 import { siteConfig } from "@/config/site";
-import { Mail, Download, ArrowUpRight, MapPin } from "lucide-react";
+import { Mail, Download, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact | Anss Rasool",
-  description: "Get in touch with Anss Rasool - Full-Stack Developer.",
+  description: "Get in touch with Anss Rasool - Junior Full-Stack Developer.",
 };
 
 export default function ContactPage() {
@@ -13,21 +13,17 @@ export default function ContactPage() {
       {/* Page Header */}
       <div className="space-y-3 border-b border-[#E7E2DA] pb-6">
         <h1 className="text-3xl font-bold tracking-tight text-[#1A1815] sm:text-4xl">
-          Contact & Connect
+          My Contact
         </h1>
         <p className="max-w-2xl text-base text-[#75726B]">
-          Have a project in mind, an opportunity to discuss, or want to talk backend architecture? Reach out directly.
+          Have a project in mind, an opportunity to discuss, or just want to chat? Reach out :D
         </p>
       </div>
 
       {/* Main Contact Card */}
       <div className="rounded-2xl border border-[#E7E2DA] bg-[#FFFFFF] p-8 sm:p-12 shadow-sm space-y-10">
-        {/* Name, Role & Location */}
-        <div className="space-y-3">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#E7E2DA] bg-[#F5F2EB] px-3 py-1 text-xs font-medium text-[#5A5751]">
-            <MapPin className="h-3.5 w-3.5 text-[#C27847]" />
-            <span>{siteConfig.location}</span>
-          </div>
+        {/* Name & Role */}
+        <div className="space-y-2">
           <h2 className="text-3xl font-bold tracking-tight text-[#1A1815] sm:text-4xl">
             {siteConfig.name}
           </h2>
@@ -47,14 +43,14 @@ export default function ContactPage() {
             <span>Send Email</span>
           </a>
 
-          {/* Download Resume Button */}
+          {/* Download Resume Button (Reduced hover darkening by 60%) */}
           <a
             href={siteConfig.resumeUrl}
             download="Anss_Rasool_Resume.pdf"
-            className="inline-flex items-center gap-2.5 rounded-xl border border-[#E7E2DA] bg-[#F5F2EB] px-6 py-3.5 text-sm font-semibold text-[#1A1815] transition-colors hover:border-[#DDD7CD] hover:bg-[#EAE5DB]"
+            className="inline-flex items-center gap-2.5 rounded-xl border border-[#E7E2DA] bg-[#F5F2EB] px-6 py-3.5 text-sm font-semibold text-[#1A1815] transition-colors hover:border-[#DDD7CD] hover:bg-[#F5F2EB]/50"
           >
             <Download className="h-4 w-4" />
-            <span>Download Resume (PDF)</span>
+            <span>My Resume</span>
           </a>
         </div>
 
@@ -69,7 +65,7 @@ export default function ContactPage() {
               href={siteConfig.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] p-4 transition-colors hover:border-[#DDD7CD] hover:bg-[#F5F2EB]"
+              className="flex items-center justify-between rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] p-4 transition-colors hover:border-[#DDD7CD] hover:bg-[#F5F2EB]/40"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#FFFFFF] border border-[#E7E2DA]">
@@ -94,7 +90,7 @@ export default function ContactPage() {
               href={siteConfig.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] p-4 transition-colors hover:border-[#DDD7CD] hover:bg-[#F5F2EB]"
+              className="flex items-center justify-between rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] p-4 transition-colors hover:border-[#DDD7CD] hover:bg-[#F5F2EB]/40"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#FFFFFF] border border-[#E7E2DA]">

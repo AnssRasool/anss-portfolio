@@ -17,7 +17,7 @@ export function Footer() {
               Rasool.
             </p>
             <p className="text-sm text-[#75726B]">
-              Full-Stack Developer · Backend & Cloud Systems
+              Full-Stack Developer
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export function Footer() {
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-[#1A1815] hover:underline"
                   >
-                    Resume (PDF)
+                    My Resume
                   </a>
                 </li>
               </ul>
@@ -93,8 +93,7 @@ export function Footer() {
 
         {/* Sub-footer copyright */}
         <div className="mt-6 flex flex-col items-center justify-between gap-2 px-2 text-xs text-[#969289] sm:flex-row">
-          <p>© {currentYear} Anss Rasool. All rights reserved.</p>
-          <p>Built with React & Next.js</p>
+          <p>© {currentYear} Anss Rasool.</p>
         </div>
       </div>
     </footer>

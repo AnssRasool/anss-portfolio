@@ -64,22 +64,22 @@ export function ToolWorkbench({ tool }: { tool: Tool }) {
 
   // State for Tool 2: JWT Inspector
   const sampleToken =
-    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c3JfOTlhOGI3IiwibmFtZSI6IkFuc3MgUmFzb29sIiwicm9sZSI6InNlbmlvci1lbmdpbmVlciIsImlhdCI6MTcyNzE0MDAwMCwiZXhwIjoxNzk4NzQwMDAwfQ.k8Xq7Z_preview_signature_hash";
+    "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c3JfOTlhOGI3IiwibmFtZSI6IkFuc3MgUmFzb29sIiwicm9sZSI6Imp1bmlvci1kZXZlbG9wZXIiLCJpYXQiOjE3MjcxNDAwMDAsImV4cCI6MTc5ODc0MDAwMH0.k8Xq7Z_preview_signature_hash";
   const [tokenInput, setTokenInput] = useState(sampleToken);
   const decodedHeader = { alg: "RS256", typ: "JWT" };
   const decodedPayload = {
     sub: "usr_99a8b7",
     name: "Anss Rasool",
-    role: "senior-engineer",
+    role: "junior-developer",
     department: "Backend & Systems",
     iat: 1727140000,
     exp: 1798740000,
   };
 
   // State for Tool 3: SEO Scorer
-  const [seoTitle, setSeoTitle] = useState("Anss Rasool - Full-Stack Developer & Backend Engineer");
+  const [seoTitle, setSeoTitle] = useState("Anss Rasool - Junior Full-Stack Developer");
   const [seoDesc, setSeoDesc] = useState(
-    "Full-stack software engineer specializing in backend architecture, real-time streaming systems, and distributed cloud applications."
+    "Junior full-stack developer focused on backend systems, real-time pipelines, and scalable APIs."
   );
   const [hasOgImage, setHasOgImage] = useState(true);
   const [hasCanonical, setHasCanonical] = useState(true);

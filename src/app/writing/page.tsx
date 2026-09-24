@@ -1,29 +1,29 @@
 import { articles } from "@/data/articles";
-import { ArticleRow } from "@/components/ArticleRow";
+import { ArticleCard } from "@/components/ArticleCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Writing | Anss Rasool",
-  description: "Technical articles, post-mortems, and architectural reflections on backend engineering and cloud systems.",
+  description: "Articles and notes on backend development, system architecture, and cloud infrastructure.",
 };
 
 export default function WritingPage() {
   return (
-    <div className="py-12 md:py-20 space-y-10">
+    <div className="py-12 md:py-16 space-y-10">
       {/* Page Header */}
-      <div className="space-y-3 border-b border-[#E7E2DA] pb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-[#1A1815] sm:text-4xl">
-          Writing & Notes
+      <div className="space-y-3 border-b border-[#E7E2DA] pb-6">
+        <h1 className="text-3xl font-bold tracking-tight text-[#1A1815] sm:text-4xl">
+          Writing
         </h1>
-        <p className="max-w-2xl text-base leading-relaxed text-[#75726B]">
-          Technical deep-dives, post-mortems, and system design patterns focused on low-latency backend architectures, distributed event buses, and developer tooling.
+        <p className="max-w-2xl text-base text-[#75726B]">
+          Technical write-ups, post-mortems, and architectural reflections on backend development and cloud systems.
         </p>
       </div>
 
-      {/* Editorial List Archive */}
-      <div className="rounded-2xl border border-[#E7E2DA] bg-[#FFFFFF] p-2 sm:p-6 shadow-xs divide-y divide-[#E7E2DA]">
+      {/* 5 Dummy Articles Grid */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {articles.map((article) => (
-          <ArticleRow key={article.id} article={article} />
+          <ArticleCard key={article.id} article={article} />
         ))}
       </div>
     </div>

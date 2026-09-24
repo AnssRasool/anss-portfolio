@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
   avatarUrl: "/my-pic.webp",
   // Authentic 3-sentence summary, distinct from CV text
   summary:
-    "Software engineer focused on backend architecture, resilient event-driven systems, and real-time streaming pipelines. I design high-throughput distributed services and autonomous AI tooling with C#, TypeScript, Go, and Python, prioritizing sub-millisecond latencies and system correctness. Driven by developer ergonomics, clear operational telemetry, and building software that performs predictably under scale.",
+    "I am a Full-Stack Software Developer focused on backend architecture, resilient event-driven systems, and real-time streaming pipelines. I design high-throughput distributed services and autonomous AI tooling with C#, TypeScript, and Python, prioritizing sub-millisecond latencies and system correctness. Driven by developer ergonomics, clear operational telemetry, and building software that performs predictably under scale.",
   highlights: [
     { label: "Architecture", value: "Real-Time & Distributed" },
     { label: "AI Integration", value: "Model Context Protocol (MCP)" },
