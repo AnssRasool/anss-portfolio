@@ -82,7 +82,7 @@ export function Hero() {
             </div>
           </div>
           {/* Location text right below picture - No pills or borders, matches UI */}
-          <p className="mt-3 text-xs sm:text-sm font-medium text-[#75726B] tracking-normal text-center">
+          <p className="mt-3 text-xs sm:text-sm font-medium text-[#1A1815] tracking-normal text-center">
             {siteConfig.location}
           </p>
         </div>

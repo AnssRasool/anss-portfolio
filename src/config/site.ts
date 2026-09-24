@@ -42,7 +42,6 @@ export const siteConfig: SiteConfig = {
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
     { label: "Writing", href: "/writing" },
-    { label: "Free Tools", href: "/free-tools" },
     { label: "Contact", href: "/contact" },
   ],
 };

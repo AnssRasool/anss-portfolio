@@ -4,22 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { articles } from "@/data/articles";
-import { tools } from "@/data/tools";
 import {
   Home,
   Briefcase,
   BookOpen,
-  Wrench,
   Mail,
 } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
 
-  // If articleCount == 0 don't show in navbar. Same for freetoolCount == 0
+  // If articleCount == 0 don't show in navbar
   const filteredNavItems = siteConfig.navItems.filter((item) => {
     if (item.href === "/writing" && articles.length === 0) return false;
-    if (item.href === "/free-tools" && tools.length === 0) return false;
     return true;
   });
 
@@ -32,8 +29,6 @@ export function Navbar() {
         return <Briefcase className="h-4 w-4 shrink-0" />;
       case "/writing":
         return <BookOpen className="h-4 w-4 shrink-0" />;
-      case "/free-tools":
-        return <Wrench className="h-4 w-4 shrink-0" />;
       case "/contact":
         return <Mail className="h-4 w-4 shrink-0" />;
       default:

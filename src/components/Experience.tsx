@@ -38,7 +38,7 @@ export function Experience() {
                 </div>
 
                 <div className="self-start sm:self-auto">
-                  <span className="inline-flex items-center rounded-lg border border-[#E7E2DA] bg-[#FAF8F5] px-3 py-1 font-mono text-xs font-medium text-[#5A5751]">
+                  <span className="font-mono text-xs sm:text-sm font-semibold text-[#1A1815]">
                     {exp.period}
                   </span>
                 </div>
