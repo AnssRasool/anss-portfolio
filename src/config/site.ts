@@ -25,14 +25,14 @@ export const siteConfig: SiteConfig = {
   email: "rasoolanss441@gmail.com",
   socials: {
     github: "https://github.com/AnssRasool",
-    linkedin: "https://www.linkedin.com/in/anss-rasool", // Editable placeholder
+    linkedin: "https://www.linkedin.com/in/anssrasool",
   },
   resumeUrl: "/my-resume.pdf",
   // Optimized 28KB WebP image for instant 0-delay load
   avatarUrl: "/my-pic.webp",
-  // Completely rewritten, personalized summary distinct from CV
+  // Authentic 3-sentence summary, distinct from CV text
   summary:
-    "I am a Full-Stack Developer based in Lahore, Pakistan, specializing in high-throughput backend systems, real-time streaming audio pipelines, and autonomous AI integrations. Over the past year, I have engineered certified Model Context Protocol (MCP) servers, hardened cloud email infrastructure against multi-tenant vulnerabilities, and slashed real-time transcription latencies by over 80%. I thrive at the intersection of robust backend design, distributed event pipelines, and developer-first platform tooling.",
+    "Software engineer focused on backend architecture, resilient event-driven systems, and real-time streaming pipelines. I design high-throughput distributed services and autonomous AI tooling with C#, TypeScript, Go, and Python, prioritizing sub-millisecond latencies and system correctness. Driven by developer ergonomics, clear operational telemetry, and building software that performs predictably under scale.",
   highlights: [
     { label: "Architecture", value: "Real-Time & Distributed" },
     { label: "AI Integration", value: "Model Context Protocol (MCP)" },

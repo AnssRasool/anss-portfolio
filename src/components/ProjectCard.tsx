@@ -7,7 +7,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl border border-[#E7E2DA] bg-[#FFFFFF] shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#DDD7CD] hover:shadow-md">
+    <div className="group flex flex-col overflow-hidden rounded-2xl border border-[#E7E2DA] bg-[#FFFFFF] shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-[#DDD7CD] hover:shadow-md">
       {/* Project Visual Schematic Banner */}
       <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-[#E7E2DA] bg-[#F5F2EB]">
         <Image
@@ -24,19 +24,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Content */}
       <div className="flex flex-1 flex-col justify-between p-6">
-        <div className="space-y-3">
-          <div className="space-y-1">
-            <span className="font-mono text-[11px] font-semibold tracking-wider text-[#827D74] uppercase">
-              {project.category}
-            </span>
+        <div className="space-y-4">
+          <div>
             <h3 className="text-xl font-bold tracking-tight text-[#1A1815] transition-colors group-hover:text-[#1A1815]">
               {project.title}
             </h3>
+            <p className="text-xs font-medium text-[#75726B] mt-0.5">
+              {project.category}
+            </p>
           </div>
 
           {/* Problem Solved Callout */}
           <div className="rounded-xl border border-[#E7E2DA] bg-[#FAF8F5] p-3.5 space-y-1">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#827D74]">
+            <p className="text-xs font-semibold text-[#1A1815]">
               Problem Solved
             </p>
             <p className="text-xs leading-relaxed text-[#5A5751]">
@@ -47,9 +47,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Technologies - Names only, strictly NO logos */}
         <div className="mt-5 border-t border-[#F5F2EB] pt-4">
-          <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-wider text-[#827D74]">
-            Technologies Used
-          </p>
           <div className="flex flex-wrap gap-1.5">
             {project.technologies.map((tech) => (
               <span

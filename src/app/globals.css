@@ -3,39 +3,59 @@
 @tailwind utilities;
 
 :root {
-  --background: #FAF7F2;
-  --foreground: #161412;
+  --background: #FAF8F5;
+  --foreground: #1A1815;
 }
 
 html {
-  background-color: #FAF7F2;
-  color: #161412;
+  background-color: #FAF8F5;
+  color: #1A1815;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #FAF7F2;
-  color: #161412;
+  background-color: #FAF8F5;
+  color: #1A1815;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Subtle artisanal dot grid texture inspired by premium portfolio sites */
-  background-image: radial-gradient(rgba(210, 198, 180, 0.45) 1px, transparent 1px);
-  background-size: 28px 28px;
+  /* Refined, quiet ambient dot matrix texture */
+  background-image: radial-gradient(rgba(180, 165, 145, 0.28) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
+/* Styled text selection */
 ::selection {
-  background: #E8DFD1;
-  color: #161412;
+  background: #E8E0D2;
+  color: #1A1815;
 }
 
-/* Page entrance keyframe animation */
+/* Styled scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DDD5C7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4B9A5;
+}
+
+/* Fluid page entrance keyframe animation */
 @keyframes pageEnter {
   0% {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
@@ -44,18 +64,11 @@ body {
 }
 
 .animate-page-enter {
-  animation: pageEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: pageEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Subtle, non-gimmicky hover transitions */
-.hover-subtle {
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.2s ease,
-              background-color 0.2s ease,
-              box-shadow 0.2s ease;
-}
-
-.hover-subtle:hover {
-  border-color: #DDD6CA;
-  box-shadow: 0 6px 20px -4px rgba(40, 30, 20, 0.05);
+/* Accessible focus visible outlines */
+:focus-visible {
+  outline: 2px solid #1A1815;
+  outline-offset: 2px;
 }
