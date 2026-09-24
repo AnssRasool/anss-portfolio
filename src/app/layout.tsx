@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/config/site";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | ${siteConfig.role}`,
@@ -19,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-[#FAF8F5] text-[#1A1815] font-sans flex flex-col">
+      <body className={`${inter.variable} min-h-screen bg-[#FAF8F5] text-[#1A1815] font-sans flex flex-col`}>
         <Navbar />
         <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {children}
