@@ -3,37 +3,59 @@
 @tailwind utilities;
 
 :root {
-  --background: #FAF8F5;
-  --foreground: #1A1815;
+  --background: #FAF7F2;
+  --foreground: #161412;
 }
 
 html {
-  background-color: #FAF8F5;
-  color: #1A1815;
+  background-color: #FAF7F2;
+  color: #161412;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #FAF8F5;
-  color: #1A1815;
+  background-color: #FAF7F2;
+  color: #161412;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Subtle artisanal dot grid texture inspired by premium portfolio sites */
+  background-image: radial-gradient(rgba(210, 198, 180, 0.45) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 ::selection {
   background: #E8DFD1;
-  color: #1A1815;
+  color: #161412;
 }
 
-/* Subtle transitions for cards and buttons without funky animations */
-.card-hover {
-  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+/* Page entrance keyframe animation */
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.card-hover:hover {
-  border-color: #DDD7CD;
-  box-shadow: 0 4px 12px -2px rgba(26, 24, 21, 0.05);
+.animate-page-enter {
+  animation: pageEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle, non-gimmicky hover transitions */
+.hover-subtle {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.hover-subtle:hover {
+  border-color: #DDD6CA;
+  box-shadow: 0 6px 20px -4px rgba(40, 30, 20, 0.05);
 }

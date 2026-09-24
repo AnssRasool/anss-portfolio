@@ -1,46 +1,74 @@
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { MapPin, Download } from "lucide-react";
+import { MapPin, Download, ArrowUpRight, Sparkles } from "lucide-react";
 
 export function Hero() {
   return (
     <section className="py-12 md:py-20">
-      <div className="flex flex-col-reverse items-center justify-between gap-8 md:flex-row md:items-start md:gap-12">
+      <div className="flex flex-col-reverse items-center justify-between gap-10 md:flex-row md:items-start md:gap-14">
         {/* Left: Content */}
         <div className="flex-1 space-y-6 text-center md:text-left">
-          {/* Location Badge */}
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#E7E2DA] bg-[#F5F2EB] px-3 py-1 text-xs font-medium text-[#5A5751]">
-            <MapPin className="h-3.5 w-3.5 text-[#C27847]" />
-            <span>{siteConfig.location}</span>
+          {/* Status & Location Row */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 md:justify-start">
+            {/* Live Availability Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-600/20 bg-emerald-50/70 px-3 py-1 text-xs font-medium text-emerald-800 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+              </span>
+              <span>Available for new projects</span>
+            </div>
+
+            {/* Location Badge */}
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-[#E7E2DA] bg-[#F5F2EB] px-3 py-1 text-xs font-medium text-[#5A5751]">
+              <MapPin className="h-3.5 w-3.5 text-[#C27847]" />
+              <span>{siteConfig.location}</span>
+            </div>
           </div>
 
           {/* Name & Role */}
           <div className="space-y-2">
-            <h1 className="text-4xl font-bold tracking-tight text-[#1A1815] sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-[#1A1815] sm:text-5xl md:text-6xl">
               {siteConfig.name}
             </h1>
-            <p className="text-xl font-medium text-[#75726B] sm:text-2xl">
+            <p className="text-xl font-medium text-[#5A5751] sm:text-2xl">
               {siteConfig.role}
-              <span className="text-sm font-normal text-[#969289] block sm:inline sm:ml-2">
-                (Focused on Backend & Real-Time AI Systems)
-              </span>
+            </p>
+            <p className="text-sm font-medium tracking-wide text-[#827D74] uppercase">
+              Backend Systems · Real-Time Pipelines · Cloud Infrastructure
             </p>
           </div>
 
-          {/* Brief Summary (3 Sentences Max) */}
+          {/* Authentic 3-Sentence Summary (Differentiated from CV) */}
           <p className="max-w-2xl text-base leading-relaxed text-[#5A5751] sm:text-lg">
             {siteConfig.summary}
           </p>
 
+          {/* Technical Signature Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1 md:justify-start">
+            <span className="inline-flex items-center gap-1.5 rounded-md border border-[#E7E2DA] bg-[#FFFFFF] px-2.5 py-1 font-mono text-xs text-[#5A5751]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#3178C6]"></span>
+              Distributed Backends
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-md border border-[#E7E2DA] bg-[#FFFFFF] px-2.5 py-1 font-mono text-xs text-[#5A5751]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#10B981]"></span>
+              WebSockets & Event Streams
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-md border border-[#E7E2DA] bg-[#FFFFFF] px-2.5 py-1 font-mono text-xs text-[#5A5751]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#8B5CF6]"></span>
+              MCP & AI Tooling
+            </span>
+          </div>
+
           {/* Action Row: Socials & Resume */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2 md:justify-start">
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-3 md:justify-start">
             {/* Download Resume Button */}
             <a
               href={siteConfig.resumeUrl}
               download="Anss_Rasool_Resume.pdf"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#1A1815] px-5 py-2.5 text-sm font-semibold text-[#FAF8F5] shadow-sm transition-colors hover:bg-[#272522]"
+              className="group inline-flex items-center gap-2 rounded-xl bg-[#1A1815] px-5 py-2.5 text-sm font-semibold text-[#FAF8F5] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#272522] hover:shadow-md"
             >
-              <Download className="h-4 w-4" />
+              <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
               <span>Download CV / Resume</span>
             </a>
 
@@ -50,7 +78,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] transition-colors hover:border-[#DDD7CD] hover:bg-[#F5F2EB]"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#1A1815] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#F5F2EB] hover:shadow-sm"
             >
               <svg
                 className="h-5 w-5 fill-current"
@@ -71,7 +99,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#0A66C2] transition-colors hover:border-[#DDD7CD] hover:bg-[#F5F2EB]"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7E2DA] bg-[#FFFFFF] text-[#0A66C2] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#DDD7CD] hover:bg-[#F5F2EB] hover:shadow-sm"
             >
               <svg
                 className="h-5 w-5 fill-current"
@@ -84,17 +112,25 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right: Picture */}
+        {/* Right: Picture with fast WebP and bespoke craft frame */}
         <div className="relative shrink-0">
-          <div className="relative h-44 w-44 overflow-hidden rounded-2xl border-2 border-[#E7E2DA] bg-[#F5F2EB] shadow-sm sm:h-52 sm:w-52 md:h-60 md:w-60">
-            <Image
-              src={siteConfig.avatarUrl}
-              alt={siteConfig.name}
-              fill
-              priority
-              className="object-cover"
-              sizes="(max-width: 640px) 176px, (max-width: 768px) 208px, 240px"
-            />
+          <div className="relative">
+            {/* Ambient decorative backdrop frame */}
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-[#E7E2DA] to-[#FAF8F5] opacity-60 blur-sm"></div>
+
+            {/* Profile Avatar Card */}
+            <div className="relative h-44 w-44 overflow-hidden rounded-2xl border border-[#DDD7CD] bg-[#FFFFFF] p-1.5 shadow-md transition-transform duration-300 hover:scale-[1.02] sm:h-52 sm:w-52 md:h-60 md:w-60">
+              <div className="relative h-full w-full overflow-hidden rounded-xl bg-[#F5F2EB]">
+                <Image
+                  src={siteConfig.avatarUrl}
+                  alt={siteConfig.name}
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 640px) 176px, (max-width: 768px) 208px, 240px"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

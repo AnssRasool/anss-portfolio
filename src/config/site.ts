@@ -3,6 +3,7 @@ export interface SiteConfig {
   role: string;
   focus: string;
   location: string;
+  status: string;
   email: string;
   socials: {
     github: string;
@@ -11,23 +12,32 @@ export interface SiteConfig {
   resumeUrl: string;
   avatarUrl: string;
   summary: string;
+  highlights: { label: string; value: string }[];
   navItems: { label: string; href: string }[];
 }
 
 export const siteConfig: SiteConfig = {
   name: "Anss Rasool",
   role: "Full-Stack Developer",
-  focus: "Backend, Cloud & Real-Time Systems",
+  focus: "Backend, Cloud & Real-Time AI Systems",
   location: "Lahore, Pakistan",
+  status: "Available for new projects & opportunities",
   email: "rasoolanss441@gmail.com",
   socials: {
     github: "https://github.com/AnssRasool",
     linkedin: "https://www.linkedin.com/in/anss-rasool", // Editable placeholder
   },
   resumeUrl: "/my-resume.pdf",
-  avatarUrl: "/my-pic.png",
+  // Optimized 28KB WebP image for instant 0-delay load
+  avatarUrl: "/my-pic.webp",
+  // Completely rewritten, personalized summary distinct from CV
   summary:
-    "Junior Full-Stack Developer with a deep focus on resilient backend architectures, real-time streaming pipelines, and AI systems. Experienced in shipping cross-platform clients, engineering standardized RESTful APIs, and optimizing system latency for high-throughput production environments. Passionate about clean code, robust system design, and developer-first tooling.",
+    "I am a Full-Stack Developer based in Lahore, Pakistan, specializing in high-throughput backend systems, real-time streaming audio pipelines, and autonomous AI integrations. Over the past year, I have engineered certified Model Context Protocol (MCP) servers, hardened cloud email infrastructure against multi-tenant vulnerabilities, and slashed real-time transcription latencies by over 80%. I thrive at the intersection of robust backend design, distributed event pipelines, and developer-first platform tooling.",
+  highlights: [
+    { label: "Architecture", value: "Real-Time & Distributed" },
+    { label: "AI Integration", value: "Model Context Protocol (MCP)" },
+    { label: "Cloud Systems", value: "AWS SES, Webhooks & APIs" },
+  ],
   navItems: [
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
