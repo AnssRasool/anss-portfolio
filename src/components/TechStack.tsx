@@ -86,16 +86,17 @@ function TechIcon({ slug, color }: { slug: string; color: string }) {
 
 export function TechStack() {
   return (
-    <section className="py-12 md:py-16">
-      {/* Section Header */}
-      <div className="space-y-2 mb-8">
-        <h2 className="text-2xl font-bold tracking-tight text-[#1A1815] sm:text-3xl">
-          Technologies
-        </h2>
-        <p className="max-w-2xl text-sm text-[#75726B] sm:text-base">
-          Core backend frameworks, languages, databases, and protocols I use to
-          architect resilient, real-time distributed systems.
-        </p>
+    <section className="py-6">
+      {/* Section Header with Separator matching other sections */}
+      <div className="flex items-center justify-between gap-4 border-b border-[#E7E2DA] pb-4 mb-8">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-[#1A1815] sm:text-3xl">
+            Technologies
+          </h2>
+          <p className="text-sm text-[#75726B] mt-1">
+            Languages, frameworks, databases, and tools I use.
+          </p>
+        </div>
       </div>
 
       {/* Grid modeled directly after andrijaweb */}

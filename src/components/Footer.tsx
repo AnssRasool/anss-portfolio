@@ -23,10 +23,10 @@ export function Footer() {
 
           {/* Nav links columns */}
           <div className="flex flex-wrap gap-12 sm:gap-16">
-            {/* Explore column */}
+            {/* Navigate column */}
             <div className="space-y-3">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-[#75726B]">
-                Explore
+                Navigate
               </h4>
               <ul className="space-y-2 text-sm text-[#5A5751]">
                 {siteConfig.navItems.map((item) => (
@@ -45,7 +45,7 @@ export function Footer() {
             {/* Let's Connect column */}
             <div className="space-y-3">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-[#75726B]">
-                Let&#39;s Connect
+                Say Hi :D
               </h4>
               <ul className="space-y-2 text-sm text-[#5A5751]">
                 <li>

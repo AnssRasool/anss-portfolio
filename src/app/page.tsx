@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
+import { Experience } from "@/components/Experience";
 import { TechStack } from "@/components/TechStack";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ArticleCard } from "@/components/ArticleCard";
@@ -9,8 +10,8 @@ import { articles } from "@/data/articles";
 import { tools } from "@/data/tools";
 
 export default function Home() {
-  // Show 3 projects on the home page
-  const featuredProjects = projects.slice(0, 3);
+  // Show max 4 projects on the home page (2 per row)
+  const featuredProjects = projects.slice(0, 4);
   // Show up to 3 articles (newest to oldest)
   const recentArticles = articles.slice(0, 3);
   // Show up to 3 tools (newest to oldest)
@@ -21,10 +22,13 @@ export default function Home() {
       {/* 1. Hero Section */}
       <Hero />
 
-      {/* 2. Technologies Section (andrijaweb style) */}
+      {/* 2. Experience Section (right below Hero, jzitnik style timeline) */}
+      <Experience />
+
+      {/* 3. Technologies Section (andrijaweb style with separator) */}
       <TechStack />
 
-      {/* 3. Projects Section */}
+      {/* 4. Featured Projects Section (sahilverma style, 2 per row, max 4 items) */}
       <section className="py-6">
         {/* Same-line Header with View All Button */}
         <div className="flex items-center justify-between gap-4 border-b border-[#E7E2DA] pb-4 mb-8">
@@ -44,15 +48,15 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* 3 Projects Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* 2 per row Projects Grid (Max 4) */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </section>
 
-      {/* 4. Recent Articles Section (Hidden if articleCount == 0) */}
+      {/* 5. Recent Articles Section (Hidden if articleCount == 0) */}
       {recentArticles.length > 0 && (
         <section className="py-6">
           {/* Same-line Header with View All Button */}
@@ -82,7 +86,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* 5. Free Tools Section (Hidden if toolCount == 0) */}
+      {/* 6. Free Tools Section (Hidden if toolCount == 0) */}
       {recentTools.length > 0 && (
         <section className="py-6">
           {/* Same-line Header with View All Button */}
